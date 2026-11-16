@@ -44,11 +44,11 @@ npm install @wsy320/dsh-embedded-workbench
 
 `files` 白名单只包含插件代码与各 `lib/can-driver/**/dll/README.txt`，**不会打包任何厂商 DLL**。
 
-在 DeepSeek Harness 会话里（需要 Full access）用官方插件管理器安装本目录：
+在 DeepSeek Harness 会话里（需要 Full access）用官方插件管理器安装：
 
 ```text
 plugin_manager  action: install_bundle
-                target: C:/Users/<you>/Documents/deepseek-harness/default-workspace/dsh-embedded-workbench
+                target: @wsy320/dsh-embedded-workbench
 ```
 
 安装会把它加入 profile 的 `package.json` 和 `dsh.profile.bundles`；新装 bundle 可能经 HMR 生效，
@@ -57,9 +57,15 @@ plugin_manager  action: install_bundle
 手工安装（等价，供排查）：
 
 ```bash
-dsh plugin --profile desktop add "link:C:/Users/<you>/Documents/deepseek-harness/default-workspace/dsh-embedded-workbench"
+dsh plugin --profile desktop add @wsy320/dsh-embedded-workbench
 # 再把 "@wsy320/dsh-embedded-workbench" 追加到 ~/.dsh/profiles/desktop/package.json
 # 的 dsh.profile.bundles 数组，然后重启 DSH
+```
+
+本地开发时用 `link:` 指向源码目录，改完立即生效、无需发布：
+
+```bash
+dsh plugin --profile desktop add "link:/path/to/dsh-embedded-workbench"
 ```
 
 ## CAN 厂商驱动
@@ -113,7 +119,8 @@ export EWB_ZLG_DLL_DIR=/opt/zlg/dll
 3. 在 `devices.json` 增加一条 `{id, label, bus: "<vendor>.bus:XxxBus", platforms, dll, env}`。
 
 不需要改 `make_bus()` 或前端设备下拉：Host 会把 `devices` 随状态返回，前端动态生成选项。
-新增厂商的 `.py` 会随 npm 包发布，`dll/` 下的二进制由 `.npmignore` 自动排除。
+新增厂商的 `.py` 与 `dll/README.txt` 会被 `package.json` 的 `files` 白名单收进 npm 包，
+`dll/` 下的二进制不在白名单内，因此永不发布；`.gitignore` 同样排除它们。
 
 ### 注意位数
 
