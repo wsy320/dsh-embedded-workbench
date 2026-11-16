@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "嵌入式工作台",
+    "description": "串口终端 + ZLG USBCANFD 的 CAN/UDS 工作台：多标签面板、实时收发、CSV 录制，并通过 embedded_workbench_get 把两路状态交给 agent。"
+  }
+}

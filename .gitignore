@@ -1,0 +1,31 @@
+# Python 字节码（zlg-can 驱动是 Python，运行时会生成）
+__pycache__/
+*.py[cod]
+
+# 依赖
+node_modules/
+
+# 日志与临时文件
+*.log
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 打包产物
+*.tgz
+coverage/
+
+# 本地配置（含路径与凭据）
+.env
+.env.local
+
+# 厂商 DLL（不随仓库/npm 分发，用户本地拷贝；适用于所有 CAN 厂商目录）
+lib/can-driver/**/dll/*.dll
+lib/can-driver/**/dll/*.so
+lib/can-driver/**/dll/kerneldlls/
+# 占位说明必须进仓库，否则 clone 后 dll/ 目录消失、用户不知道放哪
+!lib/can-driver/**/dll/README.txt

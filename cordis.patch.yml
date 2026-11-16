@@ -1,0 +1,9 @@
+# dsh-embedded-workbench bundle patch: one host row over the Web or Desktop
+# profile. A fresh id adds a row beside the shipped ones; it never replaces an
+# existing cell. The row name resolves from the profile's own node_modules.
+#
+# Machine-specific paths (the zlg-can folder, the Python executable) live in the
+# profile's own patch or in the panel's settings page, never in the bundle.
+- insert:
+    - id: dsh-embedded-workbench
+      name: '@wsy320/dsh-embedded-workbench'

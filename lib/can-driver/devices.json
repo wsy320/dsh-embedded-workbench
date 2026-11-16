@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "devices": [
+    {
+      "id": "zlg",
+      "label": "zlgcan",
+      "bus": "zlgcan.bus:ZlgBus",
+      "platforms": ["win32", "linux"],
+      "channels": 2,
+      "dll": {"win32": "zlgcan.dll", "linux": "libusbcanfd.so"},
+      "env": "EWB_ZLG_DLL_DIR"
+    },
+    {
+      "id": "cxcan",
+      "label": "CXCAN",
+      "bus": "cxcan.bus:CxCanBus",
+      "platforms": ["win32"],
+      "channels": 2,
+      "dll": {"win32": "ControlCANFD.dll"},
+      "env": "EWB_CXCAN_DLL_DIR"
+    },
+    {
+      "id": "virtual",
+      "label": "Virtual loopback",
+      "bus": "agent.bus:VirtualBus",
+      "platforms": ["win32", "linux"],
+      "channels": 2,
+      "dll": null,
+      "env": null
+    }
+  ]
+}

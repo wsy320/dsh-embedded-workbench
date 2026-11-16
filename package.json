@@ -1,0 +1,46 @@
+{
+  "name": "@wsy320/dsh-embedded-workbench",
+  "version": "0.1.0",
+  "description": "Embedded workbench for DeepSeek Harness: a multi-tab Web panel for UART terminals and ZLG USBCANFD CAN/UDS, live streams, CSV recording, and a read-only agent snapshot tool",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "icon": "./icon.svg",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/*.js",
+    "lib/can-driver/devices.json",
+    "lib/can-driver/**/*.py",
+    "lib/can-driver/**/dll/README.txt",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "locale/en.json",
+    "locale/zh.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsy320/dsh-embedded-workbench.git"
+  },
+  "license": "MIT"
+}

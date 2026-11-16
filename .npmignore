@@ -1,0 +1,6 @@
+# Vendor DLLs are not redistributable; users copy the vendor's official driver in.
+# Applies to every current and future CAN vendor directory.
+lib/can-driver/**/dll/*
+!lib/can-driver/**/dll/README.txt
+*.tgz
+coverage/

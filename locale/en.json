@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Embedded Workbench",
+    "description": "A UART terminal plus ZLG USBCANFD CAN/UDS workbench: multi-tab panel, live traffic, CSV recording, and both sides exposed to the agent through embedded_workbench_get."
+  }
+}
