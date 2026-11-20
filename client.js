@@ -160,6 +160,8 @@ window.__ModuleLoader__.load({
       'settings.pythonHint': 'PATH 上的名字或绝对路径；真实串口需要 pyserial。',
       'settings.recordDir': '录制目录',
       'settings.recordDirHint': '留空写到桌面的 embedded-workbench 目录。',
+      'settings.dllDir': '厂商 DLL 目录',
+      'settings.dllDirHint': '留空用插件内的 dll/ 目录；也可填 ZLG 或 CXCAN 官方驱动所在目录，重连设备后生效。',
       'settings.device': '设备',
       'settings.deviceSerial': '真实串口',
       'settings.deviceVirtual': '虚拟回环（演练）',
@@ -317,6 +319,8 @@ window.__ModuleLoader__.load({
       'settings.pythonHint': 'A PATH name or absolute path; a real port needs pyserial.',
       'settings.recordDir': 'Capture folder',
       'settings.recordDirHint': 'Blank writes to Desktop/embedded-workbench.',
+      'settings.dllDir': 'Vendor DLL folder',
+      'settings.dllDirHint': 'Blank uses the dll/ folder inside the plugin; point it at a ZLG or CXCAN driver folder instead. Takes effect after reconnecting the device.',
       'settings.device': 'Device',
       'settings.deviceSerial': 'Real port',
       'settings.deviceVirtual': 'Virtual loopback (dry run)',
@@ -1445,8 +1449,12 @@ window.__ModuleLoader__.load({
               h('span', { key: 'l' }, t('settings.recordDir')),
               h(Input, { key: 'v', value: draft.recordDir ?? '', placeholder: '', onChange: (event) => setTopField('recordDir', event.target.value) }),
             ]),
+            h('label', { key: 'dll', className: 'ewb-field' }, [
+              h('span', { key: 'l' }, t('settings.dllDir')),
+              h(Input, { key: 'v', value: draft.dllDir ?? '', placeholder: '', onChange: (event) => setTopField('dllDir', event.target.value) }),
+            ]),
           ]),
-          h('p', { key: 'env-hint', className: 'hint' }, `${t('settings.pythonHint')} ${t('settings.recordDirHint')}`),
+          h('p', { key: 'env-hint', className: 'hint' }, `${t('settings.pythonHint')} ${t('settings.recordDirHint')} ${t('settings.dllDirHint')}`),
 
           h('h3', { key: 'serial' }, t('settings.serialDefaults')),
           h('div', { key: 'serial-grid', className: 'ewb-grid' }, [

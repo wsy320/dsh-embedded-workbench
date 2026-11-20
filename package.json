@@ -1,6 +1,6 @@
 {
   "name": "@wsy320/dsh-embedded-workbench",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Embedded workbench for DeepSeek Harness: a multi-tab Web panel for UART terminals and ZLG USBCANFD CAN/UDS, live streams, CSV recording, and a read-only agent snapshot tool",
   "type": "module",
   "main": "index.js",
